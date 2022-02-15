@@ -1,9 +1,26 @@
 # Sheets_excel_function_samples
 The partner file to my SQL file!
 
+# AVERAGE / AVERAGEIF
+=AVERAGE(A2:A8)<br/>
+=AVERAGEIF(A2:A10, “NY”, B2:B10)
+
+# Arithmetic 
+Your spreadsheets can do basic math for you. Just put an = , then the two cells you want to use, separated by your operator. + - * or /        So, =A2-B3    or =A2*B5   Also see, modulo.
 
 # COUNT- A/IF
 COUNTA counts the total number of values within a specified range.  COUNT only counts the numerical values within a specified range.
+
+## COUNTIF will count the values within a range as long as they meet a certain condition. 
+=COUNTIF(range, criterion)<br/>
+=COUNTIF(A1:A9, “food”)<br/>
+Instead of inputting the value/string into the “ “ in this function, you can remove the “ “ and instead just type/click a cell which has the string you want to look for.
+
+## =COUNTIFS(criteria_range1, criterion1, [criteria_range2, criterion2, ...])
+=COUNTIF(A1:A9, “coffee”, C1:C9, “12/12/2020”)
+
+
+
 
 # CLEAN BLANKS
 Excel: 
@@ -54,6 +71,21 @@ Importhtml
 # LEN
 Find the length of a string. =LEN(A2)  where A2 is the cell you want. 
 
+# MOD (Modulo)
+An operator (%) that returns the remainder when one number is divided by another.
+
+# MIN/MAX
+To find the minimum or maximum value in a dataset, use =MIN(A2:A10) or =MAX(cell1:lastcell)<br/>
+MAXIF : The first argument, max_range, is the array over which you are finding the maximum. The second argument (range1) is the array you are checking. The third argument (criteria1) is the value that you are checking for. The inputs in the square brackets are for optional additional constraints.
+
+## =MAXIFS(max_range, range1, criteria1, [range2], [criteria2], ...)
+=MAXIFS(D2:D21, B2:B21, "NY")        =MAXIFS(D2:D21, B2:B21, "NY", E2:E21, "<400")<br/>
+Unlike the other IF functions, this time the range you are finding the max from comes first, then the cells where your if is occurring, then your condition.
+
+# Pivot Table Functions
+Subtracting one column from another. Make sure there is ‘ ‘ around them, and a space before the ($) . Also, with this, you need to summarize by ‘Custom’.<br/>
+=AVERAGE('Box Office Revenue ($)')-AVERAGE('Budget ($)')
+
 # Product
 Product will multiply cells together. =product(A2:B2)
 
@@ -71,6 +103,22 @@ To sort by using a formula: =SORT(A1:D6, 2, TRUE) (Range:range, column you are s
 The sort from a spreadsheet's Data tab overwrites the cells containing the unsorted data with the sorted data, while a written SORT function inserts the sorted data in a different cell range.<br /><br />
 
 To sort an entire data set by numerous conditions: highlight all of the data, click “sort range” from the data tab and then, click there is a header row, and then add your first sort, then “add another sort column” and add that.<br />
+
+# SUMIF(S)
+This one is kind of like COUNTIF. For this one, you select a column of data, and then add your condition. Then, select another column from which you are pulling a sum. Then it will take the first column, and identify only the ones that match your condition. Then, it will take the second column you identified and for all of the cells corresponding to the condition you set for the first column, it will calculate their sum. <br/>
+=SUMIF(A2:A60, “=1, B2:B60)     So in this case, all of the rows where the value is 1 in the A column will find the sum of the values in column B.<br/><br/>
+
+=SUMIF(range, criterion, sum_range)   is the basic syntax<br/><br/>
+
+To have more than one condition, use SUMIFS. Basic syntax” <br/>
+=SUMIFS(sum_range, criteria_range1, criterion1, [criteria_range2, criterion2, ...])<br/>
+=SUMIFS(A2:A60, “=1”, B2:B60, C2:C60, “12/15/2020”)
+
+# SUMPRODUCT
+This allows you to multiply across rows and add down columns. So in the example of <br/>
+=SUMPRODUCT(B3:B7, C3:C7) <br/>
+It would be running B3*B3 + B4*C4 + …..
+
 
 
 # TRIM
